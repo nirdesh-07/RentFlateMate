@@ -1,0 +1,150 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import "@fontsource/sora/600.css";
+@import "@fontsource/sora/700.css";
+@import "@fontsource/sora/800.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "@fontsource/jetbrains-mono/600.css";
+
+@theme inline {
+  --color-base: #0a0e1a;
+  --color-base-elevated: #11162c;
+  --color-base-deep: #060812;
+
+  --color-ink: #f4f5f8;
+  --color-ink-muted: #97a1b8;
+  --color-ink-faint: #5b6479;
+
+  --color-violet: #7c6bff;
+  --color-violet-soft: #a79bff;
+  --color-coral: #ff8a65;
+  --color-coral-soft: #ffb39c;
+  --color-emerald: #34d399;
+  --color-amber: #ffc266;
+
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-hover: rgba(255, 255, 255, 0.08);
+
+  --color-flatmate-green: #1DBF73;
+  --color-flatmate-navy: #1F2937;
+  --color-flatmate-bg: #F8FAFC;
+  --color-flatmate-border: #E5E7EB;
+  --color-flatmate-text: #111827;
+  --radius-flatmate: 16px;
+
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-data: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-card: 1.5rem;
+  --radius-pill: 999px;
+
+  --shadow-glow-violet: 0 0 60px -15px rgba(124, 107, 255, 0.45);
+  --shadow-glow-coral: 0 0 60px -15px rgba(255, 138, 101, 0.35);
+}
+
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-base);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+html.light {
+  color-scheme: light;
+  --color-base: #fcfbfa;
+  --color-base-elevated: #ffffff;
+  --color-base-deep: #f5f3ef;
+  --color-ink: #1f2937;
+  --color-ink-muted: #4b5563;
+  --color-ink-faint: #9ca3af;
+  --color-glass: rgba(255, 255, 255, 0.65);
+  --color-glass-border: rgba(0, 0, 0, 0.08);
+  --color-glass-hover: rgba(0, 0, 0, 0.04);
+  --color-flatmate-bg: #fdfdfc;
+  --color-flatmate-border: rgba(0, 0, 0, 0.08);
+  --color-flatmate-text: #1f2937;
+}
+
+html.light body {
+  background: radial-gradient(circle at 10% 15%, rgba(254, 240, 138, 0.22) 0%, transparent 45%),
+              radial-gradient(circle at 85% 20%, rgba(191, 219, 254, 0.28) 0%, transparent 45%),
+              radial-gradient(circle at 50% 80%, rgba(251, 207, 232, 0.24) 0%, transparent 50%),
+              #fbfaf7;
+  background-attachment: fixed;
+  color: var(--color-ink);
+}
+
+html.light .glass {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+html.light .glass-strong {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.glass {
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-strong {
+  background: rgba(17, 22, 44, 0.65);
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.bg-aurora {
+  background-image:
+    radial-gradient(60% 50% at 15% 10%, rgba(124, 107, 255, 0.25), transparent 60%),
+    radial-gradient(50% 40% at 85% 0%, rgba(255, 138, 101, 0.18), transparent 60%),
+    radial-gradient(40% 35% at 50% 100%, rgba(52, 211, 153, 0.12), transparent 60%);
+}
+
+html.light .bg-aurora {
+  background-image:
+    radial-gradient(60% 50% at 15% 10%, rgba(254, 240, 138, 0.22), transparent 60%),
+    radial-gradient(50% 40% at 85% 0%, rgba(191, 219, 254, 0.28), transparent 60%),
+    radial-gradient(40% 35% at 50% 100%, rgba(251, 207, 232, 0.24), transparent 60%);
+}
+
+.text-gradient {
+  background: linear-gradient(95deg, var(--color-violet-soft) 0%, var(--color-ink) 35%, var(--color-coral-soft) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-violet-soft);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection { background: var(--color-violet); color: white; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-glass-border); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink-faint); }
